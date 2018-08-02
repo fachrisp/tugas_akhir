@@ -69,4 +69,4 @@ def api_filter():
 
     return jsonify(results)
 
-app.run(host='0.0.0.0')
+app.run()
