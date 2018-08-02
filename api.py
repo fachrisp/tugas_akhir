@@ -4,8 +4,8 @@ from mysql.connector import errorcode
 import flask
 from flask import request, jsonify
 
-cnx = mysql.connector.connect(user='root', password='',
-                              host='localhost',
+cnx = mysql.connector.connect(user='fachri', password='kinsl4y3r',
+                              host='85.10.205.173',
                               database='tugas_akhir')
 
 app = flask.Flask(__name__)
