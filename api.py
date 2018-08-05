@@ -30,23 +30,34 @@ def api_all():
     cur.execute("SELECT * FROM id_rfid;")
     rows = cur.fetchall()
 
-    cur.execute("SELECT * FROM antrian;")
-    rows2 = cur.fetchall()
-
-    cur.execute("SELECT count(*) FROM id_rfid;")
-    jumlah = cur.fetchall()
-
     return_obj = []
     return_obj.append(rows)
-    return_obj.append(rows2)
-    return_obj.append(jumlah)
 
     # import pdb
     # pdb.set_trace()
 
-
-
     return jsonify(return_obj)
+
+@app.route('/api/resources/antrian/all', methods=['GET'])
+def api_antrian():
+    cur = cnx.cursor()
+    cur.execute("SELECT * FROM antrian;")
+    rows2 = cur.fetchall()
+    return_obj2 = []
+    return_obj2.append(rows2)
+
+    return jsonify(return_obj2)
+
+@app.route('/api/resources/jumlah/all', methods=['GET'])
+def api_jumlah():
+    cur = cnx.cursor()
+    cur.execute("SELECT count(*) FROM id_rfid;")
+    jumlah = cur.fetchall()
+    return_obj3 = []
+    return_obj3.append(jumlah)
+
+    return jsonify(return_obj3)
+
 
 @app.errorhandler(404)
 def page_not_found(e):
