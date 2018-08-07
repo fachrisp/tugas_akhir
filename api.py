@@ -37,10 +37,14 @@ def api_all():
     cur.execute("SELECT count(*) FROM id_rfid;")
     jumlah = cur.fetchall()
 
+    cur.execute("SELECT * FROM kapasitas;")
+    kapasitas = cur.fetchall()
+
     return_obj = []
     return_obj.append(rows)
     return_obj.append(rows2)
     return_obj.append(jumlah)
+    return_obj.append(kapasitas)
 
     # import pdb
     # pdb.set_trace()
